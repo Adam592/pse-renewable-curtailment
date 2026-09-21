@@ -25,3 +25,14 @@ def build_raw_filepath(endpoint: str, start_date: str, *, end_date: str | None=N
         return RAW_DATA_DIR / f"{endpoint}_{start_date}.parquet"
     else:
         return RAW_DATA_DIR / f"{endpoint}_{start_date}_to_{end_date}.parquet"
+
+def load_raw(filepath: Path) -> pd.DataFrame:
+    """The function given a filepath to data/raw returns the Parquet file and loads it into a DataFrame"""
+
+    try:
+        df = pd.read_parquet(filepath)
+        logger.info(f"Successfully retrieved {len(df)} records from {filepath}")
+        return df
+    except Exception as e:
+        logger.error(f"An error occurred loading the data: {e}")
+        return pd.DataFrame()
