@@ -1,0 +1,146 @@
+table pr-poze-redoze
+	lineageTag: d7f76337-eeae-4f35-9799-35b923e70bd7
+
+	column dtime_utc
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 97728b1a-542a-4a64-864e-3ff0925b4026
+		summarizeBy: none
+		sourceColumn: dtime_utc
+
+		annotation SummarizationSetBy = Automatic
+
+	column dtime_local
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b286ece6-be97-4cb9-a3ec-b3f28cedc506
+		summarizeBy: none
+		sourceColumn: dtime_local
+
+		annotation SummarizationSetBy = Automatic
+
+	column period
+		dataType: string
+		lineageTag: 52393f63-35d2-4628-94bc-96b35a3458e3
+		summarizeBy: none
+		sourceColumn: period
+
+		annotation SummarizationSetBy = Automatic
+
+	column pv_red_balance
+		dataType: double
+		lineageTag: 091819b1-e510-49da-9d35-ef0367ea1ec4
+		summarizeBy: sum
+		sourceColumn: pv_red_balance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pv_red_network
+		dataType: double
+		lineageTag: 7edfef5b-316c-414f-8612-bccc23bd22a1
+		summarizeBy: sum
+		sourceColumn: pv_red_network
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column wi_red_balance
+		dataType: double
+		lineageTag: c015d362-ada5-4101-90f2-e52432543a93
+		summarizeBy: sum
+		sourceColumn: wi_red_balance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column wi_red_network
+		dataType: double
+		lineageTag: 978dc3bf-789b-46da-ba87-2dd893038f26
+		summarizeBy: sum
+		sourceColumn: wi_red_network
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column business_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3973ce30-4c99-4e90-9f43-e8253f4704e5
+		summarizeBy: none
+		sourceColumn: business_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column publication_ts_utc
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5f1c070b-eaf3-4230-96f5-d90541216ebb
+		summarizeBy: none
+		sourceColumn: publication_ts_utc
+
+		annotation SummarizationSetBy = Automatic
+
+	column publication_ts
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 431e18ad-e029-4dde-8065-111e88cb4d5e
+		summarizeBy: none
+		sourceColumn: publication_ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column pv_red_balance_mwh
+		dataType: double
+		lineageTag: 0d1e207a-ee86-4f61-997b-04569686bee3
+		summarizeBy: sum
+		sourceColumn: pv_red_balance_mwh
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pv_red_network_mwh
+		dataType: double
+		lineageTag: a6579886-694c-493e-8032-5934e1fc1587
+		summarizeBy: sum
+		sourceColumn: pv_red_network_mwh
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column wi_red_balance_mwh
+		dataType: double
+		lineageTag: ba878d96-b4ce-47b3-9b88-90ec3ea5fbce
+		summarizeBy: sum
+		sourceColumn: wi_red_balance_mwh
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column wi_red_network_mwh
+		dataType: double
+		lineageTag: a1779ec1-72f0-48e8-a758-f62fd528bc1e
+		summarizeBy: sum
+		sourceColumn: wi_red_network_mwh
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition pr-poze-redoze = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents("  C:\Users\adamj\Desktop\pse-renewable-curtailment\data\processed\pr-poze-redoze.parquet"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

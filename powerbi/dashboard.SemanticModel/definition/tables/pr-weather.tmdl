@@ -1,0 +1,51 @@
+table pr-weather
+	lineageTag: 4e2ab3f5-adb6-4072-86c3-e09acccec1a0
+
+	column dtime_utc
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4b80ee70-b05e-4f83-b53b-245f1a8c1d54
+		summarizeBy: none
+		sourceColumn: dtime_utc
+
+		annotation SummarizationSetBy = Automatic
+
+	column dtime_local
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7795c934-59ad-420f-993b-e8e9d2095f05
+		summarizeBy: none
+		sourceColumn: dtime_local
+
+		annotation SummarizationSetBy = Automatic
+
+	column wind_speed_10m
+		dataType: double
+		lineageTag: 7aafe9a1-6cfb-4cad-8b51-a5fe6a601072
+		summarizeBy: sum
+		sourceColumn: wind_speed_10m
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column shortwave_radiation
+		dataType: double
+		lineageTag: f31f6662-71ba-4ec1-9215-def43cadb2d9
+		summarizeBy: sum
+		sourceColumn: shortwave_radiation
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition pr-weather = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents("  C:\Users\adamj\Desktop\pse-renewable-curtailment\data\processed\pr-weather.parquet"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

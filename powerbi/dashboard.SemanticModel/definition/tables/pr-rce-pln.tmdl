@@ -1,0 +1,78 @@
+table pr-rce-pln
+	lineageTag: 7f2f5dce-6492-48fa-8652-ab6ac61d4757
+
+	column dtime_utc
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9f09e19b-9c88-4668-b754-ce57fd7cd354
+		summarizeBy: none
+		sourceColumn: dtime_utc
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column dtime_local
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 461f58e3-45c2-4ff6-9426-785d2f3528e7
+		summarizeBy: none
+		sourceColumn: dtime_local
+
+		annotation SummarizationSetBy = Automatic
+
+	column period
+		dataType: string
+		lineageTag: e8c87e5b-29d6-48b1-bb86-966f718cafe8
+		summarizeBy: none
+		sourceColumn: period
+
+		annotation SummarizationSetBy = Automatic
+
+	column rce_pln
+		dataType: double
+		lineageTag: 602f0aea-73a0-4733-94c8-49cb187d7dd9
+		summarizeBy: sum
+		sourceColumn: rce_pln
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column business_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: dcdde4d8-2f91-45b0-ba54-d2005bab5a2c
+		summarizeBy: none
+		sourceColumn: business_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column publication_ts_utc
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 824d3d8a-2cc2-4e31-a9e3-2268a52f4e41
+		summarizeBy: none
+		sourceColumn: publication_ts_utc
+
+		annotation SummarizationSetBy = Automatic
+
+	column publication_ts
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f5cd3bb8-88c4-4015-9333-6e24d7bb3aed
+		summarizeBy: none
+		sourceColumn: publication_ts
+
+		annotation SummarizationSetBy = Automatic
+
+	partition pr-rce-pln = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents("  C:\Users\adamj\Desktop\pse-renewable-curtailment\data\processed\pr-rce-pln.parquet"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+
