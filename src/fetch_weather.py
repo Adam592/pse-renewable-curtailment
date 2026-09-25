@@ -8,7 +8,7 @@ DEFAULT_TIMEOUT = 30
 PARAMS_CONFIG = {
     "latitude": 51.9194,
     "longitude": 19.1451,
-    "start_date": "2024-10-01",
+    "start_date": "2024-09-30",
     "end_date": "2026-09-01",
     "time_interval": "hourly",
     "select_params": "wind_speed_10m,shortwave_radiation"
