@@ -66,11 +66,14 @@ def main() -> None:
     weather = load_raw(build_raw_filepath("weather", "2024-09-30", end_date="2026-09-01"))
 
     rce_pln = transform_rce_pln(rce_pln)
+    rce_pln.to_parquet("../data/processed/pr-rce-pln.parquet")
+
     poze_redoze = transform_poze_redoze(poze_redoze)
+    poze_redoze.to_parquet("../data/processed/pr-poze-redoze.parquet")
+
     weather = transform_weather(weather)
+    weather.to_parquet("../data/processed/pr-weather.parquet")
 
-
-    
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
