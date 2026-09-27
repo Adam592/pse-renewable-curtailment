@@ -10,26 +10,24 @@
       "nodes": [
         {
           "location": {
-            "x": 0,
-            "y": 4
+            "x": 852,
+            "y": 88.5
           },
-          "nodeIndex": "pr-rce-pln",
-          "nodeLineageTag": "7f2f5dce-6492-48fa-8652-ab6ac61d4757",
+          "nodeIndex": "Dim_Date",
           "size": {
-            "height": 292,
+            "height": 200,
             "width": 234
           },
           "zIndex": 0
         },
         {
           "location": {
-            "x": 284,
-            "y": 0
+            "x": 1136,
+            "y": 88.5
           },
-          "nodeIndex": "pr-poze-redoze",
-          "nodeLineageTag": "d7f76337-eeae-4f35-9799-35b923e70bd7",
+          "nodeIndex": "Dim_Time",
           "size": {
-            "height": 300,
+            "height": 200,
             "width": 234
           },
           "zIndex": 0
@@ -37,12 +35,38 @@
         {
           "location": {
             "x": 568,
-            "y": 62
+            "y": 14.5
+          },
+          "nodeIndex": "pr-rce-pln",
+          "nodeLineageTag": "6fbd1892-334a-4b92-ae64-7d8d41f566b7",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852,
+            "y": 62.5
           },
           "nodeIndex": "pr-weather",
-          "nodeLineageTag": "4e2ab3f5-adb6-4072-86c3-e09acccec1a0",
+          "nodeLineageTag": "7eed2050-1932-4faf-9c90-971c3fedc13a",
           "size": {
             "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852,
+            "y": 0
+          },
+          "nodeIndex": "pr-poze-redoze",
+          "nodeLineageTag": "e4535e78-3701-44b0-a0d2-e678bdad4b94",
+          "size": {
+            "height": 300,
             "width": 234
           },
           "zIndex": 0

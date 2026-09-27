@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 
 def format_dtime(df: pd.DataFrame) -> pd.DataFrame:
     df["dtime_utc"] = pd.to_datetime(df["dtime_utc"], utc=True)
-    df["dtime_local"] = df["dtime_utc"].dt.tz_convert("Europe/Warsaw")
+    df["dtime_local"] = df["dtime_utc"].dt.tz_convert("Europe/Warsaw").dt.tz_localize(None)
     df = df.drop(columns=["period_utc", "dtime"])
     df = df.astype({'period': 'string',
         'business_date': 'datetime64[ns]',
@@ -22,14 +22,16 @@ def transform_weather(df: pd.DataFrame) -> pd.DataFrame:
     """ """
 
     df["dtime_utc"] = pd.to_datetime(df["time"], utc=True)
-    df["dtime_local"] = df["dtime_utc"].dt.tz_convert("Europe/Warsaw")
+    
     df = df.drop(columns=["time"])
-    df = df[df["dtime_local"] >= "2024-10-01"]
 
     df = df.set_index("dtime_utc")
     df = df.resample("15min").bfill()
     df = df.reset_index()
 
+    df["dtime_local"] = df["dtime_utc"].dt.tz_convert("Europe/Warsaw").dt.tz_localize(None)
+
+    df = df[df["dtime_local"] >= "2024-10-01"]
     df["dtime_utc"] = df["dtime_utc"] + pd.Timedelta(minutes=15)
     df["dtime_local"] = df["dtime_local"] + pd.Timedelta(minutes=15)
 
@@ -72,7 +74,7 @@ def main() -> None:
     poze_redoze.to_parquet("../data/processed/pr-poze-redoze.parquet")
 
     weather = transform_weather(weather)
-    weather.to_parquet("../data/processed/pr-weather.parquet")
+    weather.to_parquet("../data/processed/pr-weather.parquet", index=False)
 
 
 if __name__ == "__main__":

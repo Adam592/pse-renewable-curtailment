@@ -1,21 +1,19 @@
 table pr-rce-pln
-	lineageTag: 7f2f5dce-6492-48fa-8652-ab6ac61d4757
+	lineageTag: 6fbd1892-334a-4b92-ae64-7d8d41f566b7
 
 	column dtime_utc
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 9f09e19b-9c88-4668-b754-ce57fd7cd354
+		lineageTag: 865917a3-4573-4867-ad51-aaa4b017206b
 		summarizeBy: none
 		sourceColumn: dtime_utc
-
-		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 
 	column dtime_local
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 461f58e3-45c2-4ff6-9426-785d2f3528e7
+		lineageTag: d012c364-9a5b-4c1f-b630-d6626b2c72eb
 		summarizeBy: none
 		sourceColumn: dtime_local
 
@@ -23,7 +21,7 @@ table pr-rce-pln
 
 	column period
 		dataType: string
-		lineageTag: e8c87e5b-29d6-48b1-bb86-966f718cafe8
+		lineageTag: 9f3aa20a-6edc-4eb6-95b1-b814d0d6998c
 		summarizeBy: none
 		sourceColumn: period
 
@@ -31,7 +29,7 @@ table pr-rce-pln
 
 	column rce_pln
 		dataType: double
-		lineageTag: 602f0aea-73a0-4733-94c8-49cb187d7dd9
+		lineageTag: 2ad67357-e045-4415-8150-58285b11becb
 		summarizeBy: sum
 		sourceColumn: rce_pln
 
@@ -42,7 +40,7 @@ table pr-rce-pln
 	column business_date
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: dcdde4d8-2f91-45b0-ba54-d2005bab5a2c
+		lineageTag: 31d32bc5-02ca-49ee-acec-7ff3ce199bd3
 		summarizeBy: none
 		sourceColumn: business_date
 
@@ -51,7 +49,7 @@ table pr-rce-pln
 	column publication_ts_utc
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 824d3d8a-2cc2-4e31-a9e3-2268a52f4e41
+		lineageTag: 36077490-a823-490a-90f8-8a9876e09d4d
 		summarizeBy: none
 		sourceColumn: publication_ts_utc
 
@@ -60,7 +58,7 @@ table pr-rce-pln
 	column publication_ts
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: f5cd3bb8-88c4-4015-9333-6e24d7bb3aed
+		lineageTag: 40a2b669-d6c1-490d-adc0-927d3ae620c5
 		summarizeBy: none
 		sourceColumn: publication_ts
 
@@ -70,7 +68,7 @@ table pr-rce-pln
 		mode: import
 		source =
 				let
-				    Source = Parquet.Document(File.Contents("  C:\Users\adamj\Desktop\pse-renewable-curtailment\data\processed\pr-rce-pln.parquet"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+				    Source = Parquet.Document(File.Contents("C:\Users\adamj\Desktop\pse-renewable-curtailment\data\processed\pr-rce-pln.parquet"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
 				in
 				    Source
 

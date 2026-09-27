@@ -11,11 +11,13 @@ annotation __PBI_TimeIntelligenceEnabled = 0
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBI_QueryOrder = ["pr-rce-pln","pr-poze-redoze","pr-weather"]
+annotation PBI_QueryOrder = ["pr-rce-pln","pr-weather","pr-poze-redoze"]
 
+ref table Dim_Date
+ref table Dim_Time
 ref table pr-rce-pln
-ref table pr-poze-redoze
 ref table pr-weather
+ref table pr-poze-redoze
 
 ref cultureInfo en-US
 

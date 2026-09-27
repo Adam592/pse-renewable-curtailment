@@ -1,10 +1,10 @@
 table pr-poze-redoze
-	lineageTag: d7f76337-eeae-4f35-9799-35b923e70bd7
+	lineageTag: e4535e78-3701-44b0-a0d2-e678bdad4b94
 
 	column dtime_utc
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 97728b1a-542a-4a64-864e-3ff0925b4026
+		lineageTag: f5baafd1-9800-4a58-ad92-12ceb00ef31e
 		summarizeBy: none
 		sourceColumn: dtime_utc
 
@@ -13,7 +13,7 @@ table pr-poze-redoze
 	column dtime_local
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: b286ece6-be97-4cb9-a3ec-b3f28cedc506
+		lineageTag: e7ffc259-e52f-4921-be8c-3287a06407d0
 		summarizeBy: none
 		sourceColumn: dtime_local
 
@@ -21,7 +21,7 @@ table pr-poze-redoze
 
 	column period
 		dataType: string
-		lineageTag: 52393f63-35d2-4628-94bc-96b35a3458e3
+		lineageTag: 77c0eb50-4f97-440c-b33f-a5b72f37e489
 		summarizeBy: none
 		sourceColumn: period
 
@@ -29,7 +29,7 @@ table pr-poze-redoze
 
 	column pv_red_balance
 		dataType: double
-		lineageTag: 091819b1-e510-49da-9d35-ef0367ea1ec4
+		lineageTag: f5dfbb35-6cbf-4a1b-84be-389d229623b2
 		summarizeBy: sum
 		sourceColumn: pv_red_balance
 
@@ -39,7 +39,7 @@ table pr-poze-redoze
 
 	column pv_red_network
 		dataType: double
-		lineageTag: 7edfef5b-316c-414f-8612-bccc23bd22a1
+		lineageTag: 4cc80d51-6200-449a-9c06-eedddb204edd
 		summarizeBy: sum
 		sourceColumn: pv_red_network
 
@@ -49,7 +49,7 @@ table pr-poze-redoze
 
 	column wi_red_balance
 		dataType: double
-		lineageTag: c015d362-ada5-4101-90f2-e52432543a93
+		lineageTag: 594f7ac6-8ebd-4fcf-87de-0e78ee41c110
 		summarizeBy: sum
 		sourceColumn: wi_red_balance
 
@@ -59,7 +59,7 @@ table pr-poze-redoze
 
 	column wi_red_network
 		dataType: double
-		lineageTag: 978dc3bf-789b-46da-ba87-2dd893038f26
+		lineageTag: 521c52e8-e192-4945-891b-7b22d7a370b2
 		summarizeBy: sum
 		sourceColumn: wi_red_network
 
@@ -70,7 +70,7 @@ table pr-poze-redoze
 	column business_date
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 3973ce30-4c99-4e90-9f43-e8253f4704e5
+		lineageTag: 12edd179-48b8-4b40-b281-70255ba7c789
 		summarizeBy: none
 		sourceColumn: business_date
 
@@ -79,7 +79,7 @@ table pr-poze-redoze
 	column publication_ts_utc
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 5f1c070b-eaf3-4230-96f5-d90541216ebb
+		lineageTag: 8e48e482-c9c7-4b79-b993-e31eb54d7056
 		summarizeBy: none
 		sourceColumn: publication_ts_utc
 
@@ -88,7 +88,7 @@ table pr-poze-redoze
 	column publication_ts
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 431e18ad-e029-4dde-8065-111e88cb4d5e
+		lineageTag: 8c982ca9-f360-4fe6-ae40-b12146567347
 		summarizeBy: none
 		sourceColumn: publication_ts
 
@@ -96,7 +96,7 @@ table pr-poze-redoze
 
 	column pv_red_balance_mwh
 		dataType: double
-		lineageTag: 0d1e207a-ee86-4f61-997b-04569686bee3
+		lineageTag: e38febf1-eb46-42c3-bb80-792d82234440
 		summarizeBy: sum
 		sourceColumn: pv_red_balance_mwh
 
@@ -106,7 +106,7 @@ table pr-poze-redoze
 
 	column pv_red_network_mwh
 		dataType: double
-		lineageTag: a6579886-694c-493e-8032-5934e1fc1587
+		lineageTag: 11d6d90e-f6b5-4c53-9e3b-730b1f2f4fe0
 		summarizeBy: sum
 		sourceColumn: pv_red_network_mwh
 
@@ -116,7 +116,7 @@ table pr-poze-redoze
 
 	column wi_red_balance_mwh
 		dataType: double
-		lineageTag: ba878d96-b4ce-47b3-9b88-90ec3ea5fbce
+		lineageTag: 96df8319-d8a6-4631-bfeb-1326b737922c
 		summarizeBy: sum
 		sourceColumn: wi_red_balance_mwh
 
@@ -126,7 +126,7 @@ table pr-poze-redoze
 
 	column wi_red_network_mwh
 		dataType: double
-		lineageTag: a1779ec1-72f0-48e8-a758-f62fd528bc1e
+		lineageTag: 4a6eeee9-c55d-4886-a57b-9cd188b32991
 		summarizeBy: sum
 		sourceColumn: wi_red_network_mwh
 
@@ -138,7 +138,7 @@ table pr-poze-redoze
 		mode: import
 		source =
 				let
-				    Source = Parquet.Document(File.Contents("  C:\Users\adamj\Desktop\pse-renewable-curtailment\data\processed\pr-poze-redoze.parquet"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+				    Source = Parquet.Document(File.Contents("C:\Users\adamj\Desktop\pse-renewable-curtailment\data\processed\pr-poze-redoze.parquet"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
 				in
 				    Source
 
