@@ -10,3 +10,10 @@ expression _Measures =
 
 	annotation PBI_ResultType = Table
 
+expression DataFolder = "C:\Users\adamj\Desktop\pse-renewable-curtailment\data\processed\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: f545b18a-186c-4a25-979d-7ae2542d57eb
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

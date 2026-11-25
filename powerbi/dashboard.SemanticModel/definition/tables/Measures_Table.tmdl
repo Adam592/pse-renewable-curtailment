@@ -63,6 +63,31 @@ table Measures_Table
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 5e0018d9-1465-4592-a622-b340012c8b93
 
+	measure 'PV Curtailed MWh' = ABS(SUM('pr-poze-redoze'[pv_red_balance_mwh]))
+		lineageTag: 5212a168-d083-4049-93f9-a5c470c607ed
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Wind Curtailed MWh' = ABS(SUM('pr-poze-redoze'[wi_red_balance_mwh]))
+		lineageTag: ca498b05-61cc-4ada-9b34-6aa94e02f23e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Price Gap Curtailed vs Not' = [Avg Price Not Curtailed] - [Avg Price Curtailed]
+		lineageTag: dba56cbf-33c5-40e6-ae1e-dd7a7091ea74
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Curtailed GWh' = [Curtailed MWh] / 1000
+		lineageTag: 5ee61a8c-067d-4523-a9a2-8117ca66e19c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Curtailed Hours' = [Curtailed Quarters] / 4
+		lineageTag: 6261e4b8-df75-4f6e-83e2-355a0f601b68
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Column1
 		dataType: string
 		isHidden

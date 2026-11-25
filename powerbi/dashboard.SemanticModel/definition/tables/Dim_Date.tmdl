@@ -54,6 +54,12 @@ table Dim_Date
 
 		annotation SummarizationSetBy = Automatic
 
+	column YearMonth = FORMAT(Dim_Date[Date], "YYYY-MM")
+		lineageTag: a1a99b20-35df-424b-8028-3a34ca24d156
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Dim_Date = calculated
 		mode: import
 		source = ```

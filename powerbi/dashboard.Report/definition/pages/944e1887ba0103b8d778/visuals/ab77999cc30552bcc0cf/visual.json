@@ -1,0 +1,90 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "ab77999cc30552bcc0cf",
+  "position": {
+    "x": 670,
+    "y": 122,
+    "z": 5000,
+    "height": 115,
+    "width": 338,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "Curtailed Nonpositive Price Share"
+                }
+              },
+              "queryRef": "Measures_Table.Curtailed Nonpositive Price Share",
+              "nativeQueryRef": "Curtailed Nonpositive Price Share"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Measures_Table"
+                  }
+                },
+                "Property": "Curtailed Nonpositive Price Share"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures_Table.Curtailed Nonpositive Price Share"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Curtailment at price ≤ 0'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures_Table.Curtailed Nonpositive Price Share"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

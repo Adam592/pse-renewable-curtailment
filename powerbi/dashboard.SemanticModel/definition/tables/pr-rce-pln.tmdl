@@ -134,9 +134,11 @@ table pr-rce-pln
 		mode: import
 		source =
 				let
-				    Source = Parquet.Document(File.Contents("C:\Users\adamj\Desktop\pse-renewable-curtailment\data\processed\pr-rce-pln.parquet"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+				    Source = Parquet.Document(File.Contents(DataFolder & "pr-rce-pln.parquet"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
 				in
 				    Source
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 
