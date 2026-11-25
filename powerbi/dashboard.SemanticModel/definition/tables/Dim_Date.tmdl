@@ -1,0 +1,74 @@
+table Dim_Date
+	lineageTag: c5240225-dccb-48a3-a1ab-5c3a34709740
+
+	column Date
+		formatString: General Date
+		lineageTag: 7b9d3e89-149d-4d2d-b9b6-c25e3de7b5c8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year = YEAR(Dim_Date[Date])
+		formatString: 0
+		lineageTag: 375dec93-37ac-4b03-9537-c150e6078ce0
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber = MONTH(Dim_Date[Date])
+		isHidden
+		formatString: 0
+		lineageTag: 37ceff9e-b824-490f-b88f-04e842efc7a9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName = FORMAT(Dim_Date[Date], "MMMM")
+		lineageTag: 35546680-d52d-40b7-a2ab-cf6e43f5821b
+		summarizeBy: none
+		sortByColumn: MonthNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekdayNumber = WEEKDAY(Dim_Date[Date], 2)
+		isHidden
+		formatString: 0
+		lineageTag: 62364b65-0e4e-4c02-885a-c19139ed2fda
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekdayName = FORMAT(Dim_Date[Date], "dddd")
+		lineageTag: 867465c5-cc75-4dad-a53d-246331b1bc55
+		summarizeBy: none
+		sortByColumn: WeekdayNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWeekend = Dim_Date[WeekdayNumber] >= 6
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 74763b5f-3c44-48a2-8ab9-63f4cdf47d34
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth = FORMAT(Dim_Date[Date], "YYYY-MM")
+		lineageTag: a1a99b20-35df-424b-8028-3a34ca24d156
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Date = calculated
+		mode: import
+		source = ```
+				
+				CALENDAR(
+				    DATE(2024, 6, 30), 
+				    DATE(2026, 9, 2)
+				)
+				```
+
+	annotation PBI_Id = e188adab9042486da8b346a2e599129b
+

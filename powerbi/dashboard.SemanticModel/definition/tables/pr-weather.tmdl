@@ -1,27 +1,33 @@
 table pr-weather
-	lineageTag: 4e2ab3f5-adb6-4072-86c3-e09acccec1a0
+	lineageTag: 7eed2050-1932-4faf-9c90-971c3fedc13a
 
 	column dtime_utc
 		dataType: dateTime
+		isHidden
 		formatString: General Date
-		lineageTag: 4b80ee70-b05e-4f83-b53b-245f1a8c1d54
+		lineageTag: 0563bebf-7bce-4180-b944-5f917da078f1
 		summarizeBy: none
 		sourceColumn: dtime_utc
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
 	column dtime_local
 		dataType: dateTime
+		isHidden
 		formatString: General Date
-		lineageTag: 7795c934-59ad-420f-993b-e8e9d2095f05
+		lineageTag: 3d6ccbee-979a-4bc6-a181-f49df88cfa2b
 		summarizeBy: none
 		sourceColumn: dtime_local
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
 	column wind_speed_10m
 		dataType: double
-		lineageTag: 7aafe9a1-6cfb-4cad-8b51-a5fe6a601072
+		lineageTag: 38adb3a2-ed95-4916-9553-29621c8498f0
 		summarizeBy: sum
 		sourceColumn: wind_speed_10m
 
@@ -31,7 +37,7 @@ table pr-weather
 
 	column shortwave_radiation
 		dataType: double
-		lineageTag: f31f6662-71ba-4ec1-9215-def43cadb2d9
+		lineageTag: 2ab3a19b-8083-41a0-aefc-4f43fcf15d8a
 		summarizeBy: sum
 		sourceColumn: shortwave_radiation
 
@@ -39,13 +45,35 @@ table pr-weather
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column DateKey = DATEVALUE('pr-weather'[dtime_local])
+		isHidden
+		formatString: Short Date
+		lineageTag: cefdbc8e-6303-44ac-b386-2ef461ff036c
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimeKey = TIMEVALUE('pr-weather'[dtime_local])
+		isHidden
+		formatString: Short Time
+		lineageTag: cfc46747-d90d-4aad-a0f2-5138390ff354
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
 	partition pr-weather = m
 		mode: import
 		source =
 				let
-				    Source = Parquet.Document(File.Contents("  C:\Users\adamj\Desktop\pse-renewable-curtailment\data\processed\pr-weather.parquet"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+				    Source = Parquet.Document(File.Contents(DataFolder & "pr-weather.parquet"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
 				in
 				    Source
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

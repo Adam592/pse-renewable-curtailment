@@ -1,0 +1,204 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "0181b74e2733481187a0",
+  "position": {
+    "x": 960,
+    "y": 246,
+    "z": 7000,
+    "height": 493,
+    "width": 941,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Time"
+                    }
+                  },
+                  "Property": "Hour"
+                }
+              },
+              "queryRef": "Dim_Time.Hour",
+              "nativeQueryRef": "Sum of Hour",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "Avg Price Curtailed"
+                }
+              },
+              "queryRef": "Measures_Table.Avg Price Curtailed",
+              "nativeQueryRef": "Avg Price Curtailed"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "Avg Price Not Curtailed"
+                }
+              },
+              "queryRef": "Measures_Table.Avg Price Not Curtailed",
+              "nativeQueryRef": "Avg Price Not Curtailed"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Measures_Table"
+                  }
+                },
+                "Property": "Avg Price Curtailed"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#A6A6A6'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures_Table.Avg Price Not Curtailed"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures_Table.Avg Price Curtailed"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Average price with and without curtailment (PLN/MWh)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "42679005028753f36a2b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Time"
+              }
+            },
+            "Property": "Hour"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1dfc388da5200ff963e7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures_Table"
+              }
+            },
+            "Property": "Avg Price Curtailed"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cba51d513d04a3241cb7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures_Table"
+              }
+            },
+            "Property": "Avg Price Not Curtailed"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
