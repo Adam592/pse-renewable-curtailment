@@ -1,0 +1,12 @@
+expression _Measures =
+		let
+		  Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+		    #"Removed Columns" = Table.RemoveColumns(Source,{"Column1"})
+		in
+		  #"Removed Columns"
+	lineageTag: c6818bce-1796-4082-a9e7-b9413d4a7e2a
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

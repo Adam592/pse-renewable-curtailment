@@ -3,35 +3,47 @@ table pr-poze-redoze
 
 	column dtime_utc
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		lineageTag: f5baafd1-9800-4a58-ad92-12ceb00ef31e
 		summarizeBy: none
 		sourceColumn: dtime_utc
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column dtime_local
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		lineageTag: e7ffc259-e52f-4921-be8c-3287a06407d0
 		summarizeBy: none
 		sourceColumn: dtime_local
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column period
 		dataType: string
+		isHidden
 		lineageTag: 77c0eb50-4f97-440c-b33f-a5b72f37e489
 		summarizeBy: none
 		sourceColumn: period
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
 	column pv_red_balance
 		dataType: double
+		isHidden
 		lineageTag: f5dfbb35-6cbf-4a1b-84be-389d229623b2
 		summarizeBy: sum
 		sourceColumn: pv_red_balance
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -39,9 +51,12 @@ table pr-poze-redoze
 
 	column pv_red_network
 		dataType: double
+		isHidden
 		lineageTag: 4cc80d51-6200-449a-9c06-eedddb204edd
 		summarizeBy: sum
 		sourceColumn: pv_red_network
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -49,9 +64,12 @@ table pr-poze-redoze
 
 	column wi_red_balance
 		dataType: double
+		isHidden
 		lineageTag: 594f7ac6-8ebd-4fcf-87de-0e78ee41c110
 		summarizeBy: sum
 		sourceColumn: wi_red_balance
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -59,9 +77,12 @@ table pr-poze-redoze
 
 	column wi_red_network
 		dataType: double
+		isHidden
 		lineageTag: 521c52e8-e192-4945-891b-7b22d7a370b2
 		summarizeBy: sum
 		sourceColumn: wi_red_network
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -69,28 +90,37 @@ table pr-poze-redoze
 
 	column business_date
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		lineageTag: 12edd179-48b8-4b40-b281-70255ba7c789
 		summarizeBy: none
 		sourceColumn: business_date
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column publication_ts_utc
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		lineageTag: 8e48e482-c9c7-4b79-b993-e31eb54d7056
 		summarizeBy: none
 		sourceColumn: publication_ts_utc
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column publication_ts
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		lineageTag: 8c982ca9-f360-4fe6-ae40-b12146567347
 		summarizeBy: none
 		sourceColumn: publication_ts
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -133,6 +163,26 @@ table pr-poze-redoze
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DateKey = DATEVALUE('pr-poze-redoze'[dtime_local])
+		isHidden
+		formatString: Short Date
+		lineageTag: 74493e1d-c76d-4153-bba9-c829d05b279b
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimeKey = TIMEVALUE('pr-poze-redoze'[dtime_local])
+		isHidden
+		formatString: Short Time
+		lineageTag: ebd071cf-e9fe-4c71-ac55-330af9d3cf4a
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
 
 	partition pr-poze-redoze = m
 		mode: import

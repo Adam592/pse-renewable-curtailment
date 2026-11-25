@@ -1,0 +1,90 @@
+table Measures_Table
+	lineageTag: f667d0c3-c9e6-4dcf-a453-e61ad9f8f41d
+
+	measure 'Curtailed MWh' =
+			
+			ABS(SUM('pr-poze-redoze'[pv_red_balance_mwh])) + ABS(SUM('pr-poze-redoze'[wi_red_balance_mwh]))
+		lineageTag: 537796cf-8ed0-4395-b86c-85ebaa14321a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Curtailed Quarters' =
+			
+			COUNTROWS (
+			    FILTER (
+			        'pr-poze-redoze',
+			        'pr-poze-redoze'[pv_red_balance] < 0
+			            || 'pr-poze-redoze'[wi_red_balance] < 0
+			    )
+			)
+		formatString: 0
+		lineageTag: bba481fd-d3a5-4066-bf7b-5ba94e14f197
+
+	measure 'Quarters Without Status' =
+			
+			COUNTROWS (
+			    FILTER ( 'pr-rce-pln', ISBLANK ( 'pr-rce-pln'[Curtailment Status] ) )
+			)
+		formatString: #,0
+		lineageTag: 3de0a06d-e3da-4c83-856d-3346d5eb2aa0
+
+	measure 'Avg Price Curtailed' =
+			
+			CALCULATE(
+			    AVERAGE('pr-rce-pln'[rce_pln]),
+			    'pr-rce-pln'[Curtailment Status] = "Curtailed"
+			)
+		lineageTag: 1a84b122-43fa-4dbb-b401-5ccb4059aa2b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Price Not Curtailed' =
+			
+			CALCULATE(
+			    AVERAGE('pr-rce-pln'[rce_pln]),
+			    'pr-rce-pln'[Curtailment Status] = "Not Curtailed")
+		lineageTag: 1d629e90-1bf0-479b-95b5-88e31dbe1b09
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Curtailed Nonpositive Price Share' =
+			
+			DIVIDE (
+			    CALCULATE (
+			        COUNTROWS ( 'pr-rce-pln' ),
+			        'pr-rce-pln'[Curtailment Status] = "Curtailed",
+			        'pr-rce-pln'[rce_pln] <= 0
+			    ),
+			    CALCULATE (
+			        COUNTROWS ( 'pr-rce-pln' ),
+			        'pr-rce-pln'[Curtailment Status] = "Curtailed"
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5e0018d9-1465-4592-a622-b340012c8b93
+
+	column Column1
+		dataType: string
+		isHidden
+		lineageTag: fe773df3-c1b6-430c-a207-66264de176a1
+		summarizeBy: none
+		sourceColumn: Column1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Measures_Table = m
+		mode: import
+		source =
+				let
+				  Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t])
+				in
+				  Source
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

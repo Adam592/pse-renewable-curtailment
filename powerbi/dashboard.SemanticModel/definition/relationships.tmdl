@@ -1,0 +1,24 @@
+relationship c3faefed-45fc-2196-1df5-5130d0ddb51e
+	fromColumn: pr-weather.TimeKey
+	toColumn: Dim_Time.Time
+
+relationship 075fddbb-3a21-1b93-774d-8ff973db8de0
+	fromColumn: pr-poze-redoze.TimeKey
+	toColumn: Dim_Time.Time
+
+relationship 1cbd9b84-feb7-8634-a6b3-431e7838d1d0
+	fromColumn: pr-rce-pln.TimeKey
+	toColumn: Dim_Time.Time
+
+relationship 0ec3d6f3-ad28-1ec8-4124-f7a6b9fbc5fa
+	fromColumn: pr-weather.DateKey
+	toColumn: Dim_Date.Date
+
+relationship c9afc813-1cb9-24a7-c958-e2453cf3a374
+	fromColumn: pr-poze-redoze.DateKey
+	toColumn: Dim_Date.Date
+
+relationship 17050261-814a-a843-b0d7-683effb50900
+	fromColumn: pr-rce-pln.DateKey
+	toColumn: Dim_Date.Date
+

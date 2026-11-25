@@ -10,35 +10,11 @@
       "nodes": [
         {
           "location": {
-            "x": 852,
-            "y": 88.5
+            "x": 1110,
+            "y": 513
           },
           "nodeIndex": "Dim_Date",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 1136,
-            "y": 88.5
-          },
-          "nodeIndex": "Dim_Time",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 568,
-            "y": 14.5
-          },
-          "nodeIndex": "pr-rce-pln",
-          "nodeLineageTag": "6fbd1892-334a-4b92-ae64-7d8d41f566b7",
+          "nodeLineageTag": "c5240225-dccb-48a3-a1ab-5c3a34709740",
           "size": {
             "height": 248,
             "width": 234
@@ -47,13 +23,39 @@
         },
         {
           "location": {
-            "x": 852,
-            "y": 62.5
+            "x": 1564,
+            "y": 456
+          },
+          "nodeIndex": "Dim_Time",
+          "nodeLineageTag": "7280d758-7c12-4a32-b425-4c030f52f3a5",
+          "size": {
+            "height": 216,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 442,
+            "y": 138.5
+          },
+          "nodeIndex": "pr-rce-pln",
+          "nodeLineageTag": "6fbd1892-334a-4b92-ae64-7d8d41f566b7",
+          "size": {
+            "height": 321,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1198,
+            "y": 3
           },
           "nodeIndex": "pr-weather",
           "nodeLineageTag": "7eed2050-1932-4faf-9c90-971c3fedc13a",
           "size": {
-            "height": 176,
+            "height": 248,
             "width": 234
           },
           "zIndex": 0
@@ -67,6 +69,18 @@
           "nodeLineageTag": "e4535e78-3701-44b0-a0d2-e678bdad4b94",
           "size": {
             "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1406,
+            "y": 328.5
+          },
+          "nodeIndex": "Measures_Table",
+          "size": {
+            "height": 104,
             "width": 234
           },
           "zIndex": 0

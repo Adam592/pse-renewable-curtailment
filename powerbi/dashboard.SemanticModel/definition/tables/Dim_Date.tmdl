@@ -18,6 +18,7 @@ table Dim_Date
 		annotation SummarizationSetBy = Automatic
 
 	column MonthNumber = MONTH(Dim_Date[Date])
+		isHidden
 		formatString: 0
 		lineageTag: 37ceff9e-b824-490f-b88f-04e842efc7a9
 		summarizeBy: sum
@@ -27,10 +28,12 @@ table Dim_Date
 	column MonthName = FORMAT(Dim_Date[Date], "MMMM")
 		lineageTag: 35546680-d52d-40b7-a2ab-cf6e43f5821b
 		summarizeBy: none
+		sortByColumn: MonthNumber
 
 		annotation SummarizationSetBy = Automatic
 
 	column WeekdayNumber = WEEKDAY(Dim_Date[Date], 2)
+		isHidden
 		formatString: 0
 		lineageTag: 62364b65-0e4e-4c02-885a-c19139ed2fda
 		summarizeBy: sum
@@ -40,6 +43,7 @@ table Dim_Date
 	column WeekdayName = FORMAT(Dim_Date[Date], "dddd")
 		lineageTag: 867465c5-cc75-4dad-a53d-246331b1bc55
 		summarizeBy: none
+		sortByColumn: WeekdayNumber
 
 		annotation SummarizationSetBy = Automatic
 
@@ -56,7 +60,7 @@ table Dim_Date
 				
 				CALENDAR(
 				    DATE(2024, 6, 30), 
-				    DATE(2026, 9, 1)
+				    DATE(2026, 9, 2)
 				)
 				```
 

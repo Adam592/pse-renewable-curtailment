@@ -2,6 +2,7 @@ table Dim_Time
 	lineageTag: 7280d758-7c12-4a32-b425-4c030f52f3a5
 
 	column Value
+		isHidden
 		formatString: 0
 		lineageTag: de0e4c82-aa1a-4f9e-b752-bf72562b5bab
 		summarizeBy: sum
@@ -11,6 +12,7 @@ table Dim_Time
 		annotation SummarizationSetBy = Automatic
 
 	column Time
+		isHidden
 		formatString: Short Time
 		lineageTag: 2b4a97dd-a829-4134-b52d-fd152d68ee83
 		summarizeBy: none
@@ -27,6 +29,7 @@ table Dim_Time
 		annotation SummarizationSetBy = Automatic
 
 	column Minute = MINUTE(Dim_Time[Time])
+		isHidden
 		formatString: 0
 		lineageTag: ed7fc87f-a580-4b24-b821-d14d7c17932e
 		summarizeBy: sum

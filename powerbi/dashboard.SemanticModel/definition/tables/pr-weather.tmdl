@@ -3,19 +3,25 @@ table pr-weather
 
 	column dtime_utc
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		lineageTag: 0563bebf-7bce-4180-b944-5f917da078f1
 		summarizeBy: none
 		sourceColumn: dtime_utc
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column dtime_local
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		lineageTag: 3d6ccbee-979a-4bc6-a181-f49df88cfa2b
 		summarizeBy: none
 		sourceColumn: dtime_local
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -38,6 +44,26 @@ table pr-weather
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DateKey = DATEVALUE('pr-weather'[dtime_local])
+		isHidden
+		formatString: Short Date
+		lineageTag: cefdbc8e-6303-44ac-b386-2ef461ff036c
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimeKey = TIMEVALUE('pr-weather'[dtime_local])
+		isHidden
+		formatString: Short Time
+		lineageTag: cfc46747-d90d-4aad-a0f2-5138390ff354
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
 
 	partition pr-weather = m
 		mode: import
